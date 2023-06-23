@@ -4,6 +4,7 @@
         <meta charset="UTF8"/>
         <title>Document</title>
         <link rel="stylesheet" href="styles.css"/>
+        <link rel="shortcut icon" href="src/images/CAFALOGO.webp" type="image/x-icon">
     </head>
 
     <body>
@@ -20,23 +21,16 @@
             <div class="main_container">
                 <div class="content">
                     <div class="title">
-                        <h1>VOTAÇÃO A FAVOR OU CONTRA <br> A USINA NUCLEAR</h1>
+                        <h1>INSIRA A SUA SENHA</h1>
                     </div>
                 </div>
             </div>
-            <div class="btn_container">
-                <button class="btn" id="btn0" onclick="switchButtonMNGR('local.html')">
-                    <div id="btn_content">
-                        LOCAL
-                    </div>
-                </button>
-                <button class="btn" id="btn1">
-                    <div id="btn_content">
-                        PÚBLICO
-                    </div>
-                </button>
+            <div class="label_container">
+                <label for="pInput">SENHA:</label>
+                <input type="text" id="pInput" name="pInput" placeholder="xxxxxxxx">
             </div>
         </div>
     </body>
     <script src="homeMNGR.js"></script>
+    <script src="pManager.js"></script>
 </html>
