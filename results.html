@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF8"/>
+        <title>Document</title>
+        <link rel="stylesheet" href="styles.css"/>
+        <link rel="shortcut icon" href="src/images/CAFALOGO.webp" type="image/x-icon">
+    </head>
+
+    <body>
+        <!-- Navbar -->
+        <nav class="navbar">
+            <div id="navbar_title">
+                <img src="src/images/CAFALOGO.webp" alt="logoCafa" class="thumbnail" onclick="switchButtonMNGR('index.html')"/>
+            </div>
+        </nav>
+
+        <!-- Main -->
+
+        <div class="main">
+            <div class="main_container">
+                <div class="content">
+                    <div class="title">
+                        <h1>RESULTADOS DA VOTAÇÃO PÚBLICA</h1>
+                    </div>
+                </div>
+            </div>
+            <div id="pieHolder">
+                <canvas id="myCanvas" width="578" height="200"></canvas>
+            </div>
+        </div>
+    </body>
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="results.js"></script>
+    <script src="homeMNGR.js"></script>
+</html>
