@@ -21,8 +21,8 @@ const firebaseConfig = {
   firebase.initializeApp(firebaseConfig);
   const db = firebase.database();
   const mainRef = db.ref("votes")
-  const yes = db.ref("votes/Yes")
-  const no = db.ref("votes/No")
+  let Yes = 0
+  let No = 0
 
   function submit(choice)
 {
@@ -30,18 +30,37 @@ const firebaseConfig = {
     {
         case 'Y':
             {
-                //console.log(yes)
+                Yes++
+                db.ref("votes/Yes").set(
+                    {
+                        Type:"Yes",
+                        Value:Yes
+                    }
+                )
                 hideSubmission()
                 break;
             }
         case 'N': 
             {
-                localStorage.localNo = parseInt(localStorage.localNo) + 1
+                No++
+                db.ref("votes/No").set(
+                    {
+                        Type:"No",
+                        Value:No
+                    }
+                )
                 hideSubmission()
                 break;
             } 
     }
 }
+
+mainRef.on('child_changed', (snapshot) => {
+    const newPost = snapshot.val();
+  let valu = newPost.Value
+  console.log(valu)
+  eval(newPost.Type + "=" + valu)
+  });
 
 function hideSubmission()
 {
@@ -50,5 +69,6 @@ function hideSubmission()
 
 mainRef.on('child_added', (snapshot) => {
   const newPost = snapshot.val();
-  console.log(newPost)
+  let valu = newPost.Value
+  eval(newPost.Type + "=" + valu) //this is so fire trucking weird
 });
