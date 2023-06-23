@@ -50,5 +50,5 @@ function hideSubmission()
 
 mainRef.on('child_added', (snapshot) => {
   const newPost = snapshot.val();
-  console.log(newPost.Yes)
+  console.log(newPost)
 });
