@@ -167,8 +167,7 @@ h1 {
      padding-top: 15rem;*/
 }
 
-#thanksMate
-{
+#thanksMate {
     position: fixed;
     width:100%;
     height:100%;
@@ -176,6 +175,10 @@ h1 {
     z-index: 1;
     display:none;
     
+}
+
+#thanksMate h1 { /*annoying orange crahsed my discord*/
+    padding-top: 15rem;
 }
 
 

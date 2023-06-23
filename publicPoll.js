@@ -1,5 +1,6 @@
 const firebaseConfig = {
 
+    // GHUB secret?
     apiKey: "AIzaSyCBSAoSHq0PTORSpGHANTvAhWEuSJXr4cM",
 
     authDomain: "pollfeirapub.firebaseapp.com",
@@ -57,10 +58,15 @@ const firebaseConfig = {
 
 mainRef.on('child_changed', (snapshot) => {
     const newPost = snapshot.val();
-  let valu = newPost.Value
-  console.log(valu)
-  eval(newPost.Type + "=" + valu)
-  });
+    if(newPost.Type == "lYes" || newPost.Type == "lNo")
+    {
+        return;
+    }
+    let valu = newPost.Value;
+
+   // console.log(valu);
+    eval(newPost.Type + "=" + valu);
+});
 
 function hideSubmission()
 {
@@ -68,7 +74,11 @@ function hideSubmission()
 }
 
 mainRef.on('child_added', (snapshot) => {
-  const newPost = snapshot.val();
-  let valu = newPost.Value
-  eval(newPost.Type + "=" + valu) //this is so fire trucking weird
+    const newPost = snapshot.val();
+    if(newPost.Type == "lYes" || newPost.Type == "lNo")
+    {
+        return;
+    }
+    let valu = newPost.Value;
+    eval(newPost.Type + "=" + valu); //this is so fire trucking weird
 });
