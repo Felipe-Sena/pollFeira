@@ -1,3 +1,10 @@
+if(localStorage.hasVoted && !localStorage.admin)
+{
+    hideSubmission() //ideally let's make this either redirect to a "you have already voted" page or make a popup but a popup may be
+    //insecure but then again that insecurity is only caused by someone altering local storage requires code knowledge anyways
+    //we're going to hae to REMOVE FROM PROD this localstorage.admin thing
+}
+
 const firebaseConfig = {
 
     // GHUB secret?
@@ -27,6 +34,7 @@ const firebaseConfig = {
 
   function submit(choice)
 {
+    localStorage.hasVoted = 1 //value doesn't matter dw
     switch(choice)
     {
         case 'Y':
