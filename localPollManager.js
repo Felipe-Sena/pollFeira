@@ -37,6 +37,17 @@ const firebaseConfig = {
   const db = firebase.database();
   const mainRef = db.ref("votes")
   
+  mainRef.get().then((snapshot) => {
+    if (snapshot.exists()) {
+        Yes = snapshot.val().lYes.Value;
+        No = snapshot.val().lNo.Value;
+    } else {
+        console.log("Oops!");
+    }
+  }).catch((error) => {
+    console.error(error);
+  });
+
 
   function submit(choice)
 {
