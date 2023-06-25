@@ -22,8 +22,22 @@ const firebaseConfig = {
   firebase.initializeApp(firebaseConfig);
   const db = firebase.database();
   const mainRef = db.ref("votes")
-  let Yes = 0
-  let No = 0
+  let Yes
+  let No
+
+  // Used for initialization, WON'T SYNC REAL TIME
+
+  mainRef.get().then((snapshot) => {
+    if (snapshot.exists()) {
+        Yes = snapshot.val().Yes.Value;
+        No = snapshot.val().No.Value;
+    } else {
+        console.log("Oops!");
+    }
+  }).catch((error) => {
+    console.error(error);
+  });
+
 
   function submit(choice)
 {
@@ -31,6 +45,7 @@ const firebaseConfig = {
     {
         case 'Y':
             {
+                
                 Yes++
                 db.ref("votes/Yes").set(
                     {
@@ -56,6 +71,7 @@ const firebaseConfig = {
     }
 }
 
+// Used for synchronization
 mainRef.on('child_changed', (snapshot) => {
     const newPost = snapshot.val();
     if(newPost.Type == "lYes" || newPost.Type == "lNo")
@@ -73,6 +89,7 @@ function hideSubmission()
  thanksMate.style.display = "block"   
 }
 
+/*
 mainRef.on('child_added', (snapshot) => {
     const newPost = snapshot.val();
     if(newPost.Type == "lYes" || newPost.Type == "lNo")
@@ -81,4 +98,5 @@ mainRef.on('child_added', (snapshot) => {
     }
     let valu = newPost.Value;
     eval(newPost.Type + "=" + valu); //this is so fire trucking weird
-});
+}); //errors + laggy
+*/
