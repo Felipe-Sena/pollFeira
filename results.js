@@ -46,16 +46,20 @@ mainRef.on('child_added', (snapshot) => {
 });
 
 const canvas = document.getElementById('myCanvas');
+const pieHolder = document.getElementById("pieHolder")
 const ctx = canvas.getContext('2d');
 let centerX = canvas.width / 4
 let altCenterX = canvas.width - centerX
 const centerY = canvas.height / 2;
 const radius = 70;
 
+
+
 const dictionaryBullShi = 
 {
     0:"SIM",
-    1:"NÃO"
+    1:"NÃO",
+
 }
 
 function drawPie()
@@ -66,9 +70,11 @@ function drawPie()
     for(let i=0;i<2;i++)
     {
         let choice = centerX
+        let text = "PÚBLICO"
         if(i==1)
         {
             choice = altCenterX
+            text = "LOCAL"
         }
         ctx.beginPath();
         ctx.arc(choice, centerY, radius, 0, 2 * Math.PI, false);
@@ -77,6 +83,13 @@ function drawPie()
         ctx.lineWidth = 5;
         ctx.strokeStyle = '#003300';
         ctx.stroke();
+        //local vs public
+ctx.save() //this is because we don't have built in text rotation (get to it js developer)
+ctx.translate(choice,centerY+radius*2)
+ctx.fillStyle = "white"
+ctx.font = radius / 2 + "px Arial";
+ctx.fillText(text,0,0);
+ctx.restore()
     }
    
     
@@ -115,7 +128,8 @@ for(let i=0;i<numeratorArr.length;i++) //draw percentages
     startingPoint = newStartingPoint
     ctx.restore()
 }
-//
+
+
 
 }
 /*
