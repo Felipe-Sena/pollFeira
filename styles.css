@@ -127,6 +127,10 @@ h1 {
     transform: scale(1.05);
 }
 
+.btn_pollY:active{
+    transform: scale(1);
+}
+
 .btn_pollN {
     height: 20rem;
     width: 20rem;
@@ -153,6 +157,10 @@ h1 {
     font-size: 3.5rem;
     text-shadow: 10px 10px 20px rgba(58, 44, 80, 0.582);
     transform: scale(1.05);
+}
+
+.btn_pollN:active{
+    transform: scale(1);
 }
 
 .label_container {
@@ -203,14 +211,3 @@ h1 {
 
 
 
-@keyframes passwordFail {
-    0% {
-      background-color: #491c00;
-    }
-    50% {
-        background-color: #8b0000;
-    }
-    100% {
-        background-color: #491c00;
-    }
-  }
