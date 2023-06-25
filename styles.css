@@ -17,6 +17,11 @@ h1 {
     font-weight: 600;
 }
 
+canvas {
+    display: flex;
+    padding-left: 35%;
+}
+
 #thanks_text {
     padding-top: 20%
 }
@@ -209,5 +214,11 @@ h1 {
     
 }
 
+
+#pieHolder
+{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+}
 
 

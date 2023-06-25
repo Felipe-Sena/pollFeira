@@ -1,5 +1,6 @@
 const firebaseConfig = {
 
+    //create a shared server NOW!!
     // GHUB secret?
     apiKey: "AIzaSyCBSAoSHq0PTORSpGHANTvAhWEuSJXr4cM",
 
