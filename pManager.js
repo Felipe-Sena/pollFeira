@@ -40,17 +40,13 @@ let passwords = [
     "61408998175639",
     "14761472485093"
 ]
-
-for(let i=0;i<passwords.length;i++)
+let Pword 
+if(!localStorage.getItem("Pword"))
 {
-    let pwName = "p" + i.toString()
-    let pwA = pwName + "a"
-    if(!localStorage.getItem(pwName))
-    {
-        localStorage.setItem(pwName,passwords[i])
-        localStorage.setItem(pwA, "true")
-    }
+    localStorage.setItem("Pword", passwords)
 }
+Pword = localStorage.Pword.split(",")
+console.log(Pword)
 
 const failFlashTiming = {
     duration: 400,
@@ -71,59 +67,14 @@ document.addEventListener("keydown",(e)=> {
         case "Enter":
         let pw = inputField.value;
         inputField.value = "";//clears it bhut we saved the pw in memory (i said memory instead ov ariable because i am so sophisiticated)
-        switch(pw)
+        if(Pword.indexOf(pw) ===-1)
         {
-            case localStorage.p0:
-                {
-                   
-                    if(localStorage.p0a == "true")
-                    {
-                        localStorage.p0a = "false";
-                        window.location.href='localPoll.html';
-                    }
-                    else
-                    {
-                        inputField.animate(failFlashAnimFrames,failFlashTiming)
-                    }
-                    break;
-                } 
-                case localStorage.p1:
-                {
-                    
-                    if(localStorage.p1a == "true")
-                    {
-                        
-                        localStorage.p1a = "false";
-                        window.location.href='localPoll.html';
-                    }
-                    else
-                    {
-                        inputField.animate(failFlashAnimFrames,failFlashTiming)
-                    }
-                    break;
-                } 
-                case localStorage.p2:
-                {
-                    
-                    if(localStorage.p2a == "true")
-                    {
-                        
-                        localStorage.p2a = "false";
-                        window.location.href='localPoll.html';
-                    }
-                    else
-                    {
-                        inputField.animate(failFlashAnimFrames,failFlashTiming)
-                    }
-                    break;
-                }
-                default:
-                    {
-                        
-                        inputField.animate(failFlashAnimFrames,failFlashTiming)
-                        break;
-                    }
+            inputField.animate(failFlashAnimFrames,failFlashTiming)
+            return
         }
+        Pword.splice(Pword.indexOf(pw),1)
+        localStorage.Pword = Pword
+        window.location.href='localPoll.html';
     }
 })
 
