@@ -38,8 +38,9 @@ let passwords = [
     "12345682678453",
     "12455678876643",
     "61408998175639",
-    "14761472485093",
+    "14761472485093"
 ]
+
 for(let i=0;i<passwords.length;i++)
 {
     let pwName = "p" + i.toString()
