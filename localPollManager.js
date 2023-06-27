@@ -12,26 +12,7 @@ let lYes = 0
 let lNo = 0
 
 
-const firebaseConfig = {
-
-    // GHUB secret?
-    apiKey: "AIzaSyCBSAoSHq0PTORSpGHANTvAhWEuSJXr4cM",
-
-    authDomain: "pollfeirapub.firebaseapp.com",
-
-    databaseURL: "https://pollfeirapub-default-rtdb.firebaseio.com",
-
-    projectId: "pollfeirapub",
-
-    storageBucket: "pollfeirapub.appspot.com",
-
-    messagingSenderId: "254381617251",
-
-    appId: "1:254381617251:web:b0529533e2aa1a3754c856",
-
-    measurementId: "G-JW6EE1M0DY"
-
-  };
+// FIREBASE CONFIG REMOVED
 
   firebase.initializeApp(firebaseConfig);
   const db = firebase.database();
